@@ -44,6 +44,7 @@
 		3119FAC11F71A7C1000D2DE8 /* sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3119FA8D1F71A6BF000D2DE8 /* sphere.cpp */; };
 		3119FAC21F71A7C1000D2DE8 /* striangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3119FA8F1F71A6BF000D2DE8 /* striangle.cpp */; };
 		3119FAC31F71A7C1000D2DE8 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3119FA911F71A6BF000D2DE8 /* triangle.cpp */; };
+		3119FAC51F71A920000D2DE8 /* instance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3119FAC41F71A920000D2DE8 /* instance.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -140,6 +141,7 @@
 		3119FA931F71A6BF000D2DE8 /* world.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; };
 		3119FA981F71A77E000D2DE8 /* cgdoc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cgdoc; sourceTree = BUILT_PRODUCTS_DIR; };
 		3119FA9B1F71A77E000D2DE8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3119FAC41F71A920000D2DE8 /* instance.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = instance.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				3119FA7D1F71A6BF000D2DE8 /* instance.h */,
+				3119FAC41F71A920000D2DE8 /* instance.cpp */,
 			);
 			path = primmod;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				3119FAA11F71A7C0000D2DE8 /* float4.cpp in Sources */,
 				3119FAA21F71A7C0000D2DE8 /* image.cpp in Sources */,
 				3119FAA31F71A7C0000D2DE8 /* julia.cpp in Sources */,
+				3119FAC51F71A920000D2DE8 /* instance.cpp in Sources */,
 				3119FAA41F71A7C0000D2DE8 /* matrix.cpp in Sources */,
 				3119FAA51F71A7C0000D2DE8 /* memory.cpp in Sources */,
 				3119FAA61F71A7C0000D2DE8 /* point.cpp in Sources */,
