@@ -102,6 +102,9 @@ namespace rt {
     void Instance::setCoordMapper(CoordMapper* cm){
         NOT_IMPLEMENTED;
     }
+    Point Instance::get_midpoint() const {
+        NOT_IMPLEMENTED;
+    }
     
 }
 
