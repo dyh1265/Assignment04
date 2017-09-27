@@ -60,7 +60,13 @@ namespace rt {
         this->transMatrInv = this->transMatr.invert();
     }
     BBox Instance::getBounds() const{
-        return this->primP->getBounds();
+        /* Get bounding box of referenced object */
+        BBox bb = this->content()->getBounds();
+        
+        /* Transform bounding box */
+        Point tmp_min = this->transMatr * bb.pMin;
+        Point tmp_max = this->transMatr * bb.pMax;
+        return BBox(tmp_min,tmp_max);
     }
     
     Intersection Instance::intersect(const Ray& ray, float previousBestDistance) const{
@@ -70,21 +76,24 @@ namespace rt {
         transfRay.o = this->transMatrInv * ray.o;
         transfRay.d = (this->transMatrInv * ray.d).normalize();
     /*Intersect ray with parent object*/
-        if (previousBestDistance < FLT_MAX-epsilon){
+        if (previousBestDistance < FLT_MAX){
             Point hitPobj = ray.getPoint(previousBestDistance);
             Point trhitPobj = this->transMatrInv * hitPobj;
             float dist = (trhitPobj- transfRay.o).length();
             inter = this->content()->intersect(ray,dist);
         }
         else {
-            inter = this->content()->intersect(ray,previousBestDistance);
+            inter = this->content()->intersect(transfRay,previousBestDistance);
+        }
+        if (inter.distance < 0) {
+             return Intersection::failure();
         }
     /* Transform hit point by transformation matrix */
         Point hitPoint = transfRay.getPoint(inter.distance);
         hitPoint = this->transMatr * hitPoint;
         inter.distance = (hitPoint - ray.o).length();
     /* In case transformed value is < 0 */
-        if (inter.distance < 0 || inter.distance > previousBestDistance) {
+        if (inter.distance < 0 || inter.distance > previousBestDistance - epsilon) {
             return Intersection::failure();
         }
     /* Transform normal by transpose of the inverse */
